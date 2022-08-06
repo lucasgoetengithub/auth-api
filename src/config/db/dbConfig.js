@@ -6,6 +6,12 @@ const sequelize = new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, {
     dialect: "postgres",
     port: DB_PORT,
     quoteIdentifiers: false,
+    dialectOptions: { 
+        ssl: { 
+            require: true, 
+            rejectUnauthorized: false 
+        } 
+    },
     define: {
         syncOnAssiociation: true,
         timestamps: false,
